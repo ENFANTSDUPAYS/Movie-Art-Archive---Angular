@@ -1,0 +1,72 @@
+<div *ngIf="FaceSnap.showglitter">
+    <app-glitter #glitterContainer></app-glitter>
+  </div>
+<div class="face-snap-cadre" [ngClass]="{snapped: NombreClick}">
+        <h2>{{FaceSnap.titre | uppercase}}</h2>
+        @if (FaceSnap.location){
+            <p>La localisation est : {{FaceSnap.location}}</p>
+        }@else {
+            <p>localisation non spécifiée</p>
+        }
+        <p>{{FaceSnap.autor}}</p>
+        <p>Cet article a été créé le : {{FaceSnap.createdAt | date: 'd MMMM yyyy, à HH:mm:ss'}}</p>
+        <div class="snap-container" (click)="showTrailer(FaceSnap)">
+            <ng-container *ngIf="FaceSnap.TrailerVisible ; else imageTemplate">
+                <img [alt]="FaceSnap.titre" [src]="FaceSnap.imageURL" width="400px" height="230px">
+            </ng-container>
+            <ng-template #imageTemplate>
+                <div class="overlay_trailer">
+                    <div class="message_trailer">
+                        <p>Clicker pour voir le Trailer</p>
+                        <ng-container *ngIf="!FaceSnap.showSpinner ;" >
+                            <p>Veuillez attendre 2 secondes</p>
+                            <div id="html-spinner"></div> 
+                        </ng-container>              
+                    </div>
+                </div>
+                <img [alt]="FaceSnap.titre" [src]="FaceSnap.imageURL" width="400px" height="230px">
+            </ng-template>
+        </div>
+        <div class="like">
+            <p>
+            <button (click)="onSnap()">{{SnapsButtonText}}</button>
+            </p>
+            <div [ngStyle]="{color: 'rgb(0,'+ FaceSnap.snaps +',0)'}" class="cadre">👍 {{FaceSnap.snaps}}</div>
+            <div class="description_text" id="describ" (click)="AffichageDescription()">
+                <img alt="icone description" src="https://cdn-icons-png.flaticon.com/512/16/16073.png" width="20px" height="20px">
+            </div>            
+                <div class="overlay" *ngIf="descriptionvisible"></div>
+                <div class="description-box" *ngIf="descriptionvisible">
+                <div class="croix" id="croix" (click)="croix()">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3599/3599501.png" alt="croix icone" width="50px" height="50px" >
+                </div>
+                <div class="title">
+                    <h3>Description :</h3>
+                </div>
+                <div>
+                    <p>{{FaceSnap.apropos}}</p>
+                    <div class="source">
+                         @if(FaceSnap.source){
+                            <i>Source : {{FaceSnap.source}}</i>
+                         }@else {
+                            <i>Source : Non spécifié</i>
+                         }
+                    </div>
+                </div>
+                
+                </div>
+                <div class="description_text" id="commentaire" (click)="AffichageCommentaire()">
+                    <img alt="icone description" src="https://cdn-icons-png.flaticon.com/512/13/13673.png" width="20px" height="20px">
+                </div>
+                <div class="overlay" *ngIf="CommentaireVisible"></div>
+                <div class="Commentaire-box" *ngIf="CommentaireVisible">
+                    <div class="container_croix">
+                        <div class="croix" id="croix" (click)="croix()">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3599/3599501.png" alt="croix icone" width="50px" height="50px" >
+                        </div>
+                    </div>
+                    <app-commentaires [filmId]="FaceSnap.id"></app-commentaires>
+                </div>
+        </div>
+        <app-panier></app-panier>
+    </div>

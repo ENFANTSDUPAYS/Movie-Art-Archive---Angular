@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    font-family: Roboto, Helvetica, sans-serif;
+    }
+body{
+    background-color: white;
+    margin: 0%;
+    padding: 0%;
+    overflow-x: hidden;
+}
+select[disabled] {
+    background-color: #ff2525;
+    cursor: not-allowed;
+    color: #ffffff;
+    border: black;
+  }
+  
+  

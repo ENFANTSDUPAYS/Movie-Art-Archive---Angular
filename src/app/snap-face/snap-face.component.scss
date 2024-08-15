@@ -1,0 +1,277 @@
+.face-snap-cadre{
+    display: flex;
+    height: auto ;
+    width: max-content;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.5rem;
+    margin: 40px;
+    align-items: center;
+    border-radius: 25px;
+background: #ffffff;
+box-shadow:  20px 20px 60px #d9d9d9,
+             -20px -20px 60px #ffffff;
+
+}
+//REUTILISABLE
+.no-scroll {
+    overflow: hidden;
+}
+button{
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+    height: 40px;
+    background-color: #4285F4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+button:hover{
+    background-color: #357ae8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+button:active{
+    background-color: red;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.snapped {
+    background-color: rgba(lightgreen, 0.4);
+    color: darkgreen;
+    animation-duration: 0.5s;
+    button{
+        background-color: #f44242;
+        color: rgb(255, 255, 255);
+    }
+}
+//FIN REUTILISABLE
+.source{
+    font-size: 15px;
+}
+.like{
+    display: flex;
+    width: 350px;
+    justify-content: space-between;
+    align-items: center;
+}
+.cadre{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    width: max-content;
+    height: max-content;
+    padding: 3%;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow:  20px 20px 60px #d9d9d9,
+             -20px -20px 60px #ffffff;
+}
+.app-panier{
+    display: flex;
+    width: 100%;
+}
+.projection{
+    display: flex;
+    position: relative;
+    top: 50px;
+    width: 100%;
+    height: 20px;
+}
+.description_text{
+    display: flex;
+    cursor: pointer;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 600;
+    width: 50px;
+    height: 40px;
+    border-radius: 15px;
+    background-color: white;
+    border: solid black 1px;
+    transition: 0.3s;
+}
+.description_text:hover{
+    background-color: #c2e7ff;
+    transition: 0.5s;
+}
+//OVERLAY
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(5px); 
+    z-index: 100; 
+  }
+
+  .description-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px; 
+    padding: 20px; 
+    background-color: white; 
+    z-index: 101;
+    border-radius: 15px;
+  }
+  .croix{
+    display: flex;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: 0.3s;
+  }
+  .croix:hover{
+    background-color: #f8b600;
+    transition: 0.5s;
+  }
+//OVERLAY TRAILER
+.snap-container{
+    transition: 0.3s ease-in-out;
+}
+.overlay_trailer{
+    transition: 0.3s ease-in-out;
+}
+.snap-container:hover  .overlay_trailer{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.658);
+    width: 400px;
+    height: 230px;
+    transition: 0.3s linear;
+    cursor: pointer;
+    scale: 1.1;
+  }
+.message_trailer{
+    opacity: 0;
+    position: relative;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: auto;
+    padding: 10px;
+    background-color: white;
+    border-radius: 15px;
+    transition-delay: 1s;
+    transition: opacity 0.5s linear;
+    p{
+        font-size: 10px;
+    }
+    @keyframes apparition {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      
+      @keyframes disparition {
+        from { opacity: 1; }
+        to { opacity: 0; }
+      }
+    #html-spinner{
+        position: relative;
+        width:40px;
+        height:40px;
+        border:4px solid #f8bb20;
+        border-top:4px solid white;
+        border-radius:50%;
+        transition: 0.5s;
+        animation: apparition 1s forwards;
+      }
+
+    #html-spinner.disparition{
+    animation: fadeOut 1s forwards;
+  }
+      
+      #html-spinner{
+        -webkit-transition-property: -webkit-transform;
+        -webkit-transition-duration:  1.2s;
+        -webkit-animation-name: rotate;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+        
+        -moz-transition-property: -moz-transform;
+        -moz-animation-name: rotate; 
+        -moz-animation-duration: 1.2s; 
+        -moz-animation-iteration-count: infinite;
+        -moz-animation-timing-function: linear;
+        
+        transition-property: transform;
+        animation-name: rotate; 
+        animation-duration: 1.2s; 
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+      
+      @-webkit-keyframes rotate {
+          from {-webkit-transform: rotate(0deg);}
+          to {-webkit-transform: rotate(360deg);}
+      }
+      
+      @-moz-keyframes rotate {
+          from {-moz-transform: rotate(0deg);}
+          to {-moz-transform: rotate(360deg);}
+      }
+      
+      @keyframes rotate {
+          from {transform: rotate(0deg);}
+          to {transform: rotate(360deg);}
+      }
+      #html-spinner{
+        position:relative;
+      }
+    
+}
+.snap-container:hover .overlay_trailer:hover .message_trailer{
+    display: flex;
+    opacity: 1;
+    transition-delay: opactity 1s;
+}
+.Commentaire-box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    max-width: 700px;
+    height: auto;
+    padding: 1rem; 
+    background-color: white; 
+    z-index: 101;
+    border-radius: 15px;
+    overflow: hidden;
+    .container_croix{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: auto;
+        top: 8%;
+        left: 40%;
+    }
+}
+.title{
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    height: 35px;
+}

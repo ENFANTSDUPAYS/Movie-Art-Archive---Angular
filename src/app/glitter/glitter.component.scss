@@ -1,0 +1,30 @@
+.glitterContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.glitter {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: gold;
+  border-radius: 50%;
+  opacity: 0;
+  animation: glitterAnimation 1.5s ease-in-out forwards;
+}
+
+@keyframes glitterAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+}

@@ -1,0 +1,121 @@
+.cadre{
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  width: max-content;
+  height: max-content;
+  text-wrap: nowrap;
+  padding: 0.5rem;
+  border-radius: 15px;
+  background: #ffffff;
+  box-shadow:  20px 20px 60px #d9d9d9,
+           -20px -20px 60px #ffffff;
+}
+
+.commentaires {
+    display: flex;
+    flex-direction: column;
+    min-width: 400px;
+    min-height: 450px;
+    max-width: 650px;
+    max-height: 100%;
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+} 
+.commentaire-row{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: max-content;
+  justify-content: center;
+}
+.ligne_commentaire{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 2px;
+  margin-top: 1%;
+  height: auto;
+}
+.trait{
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background-color: #ddd;
+}
+.like-cell{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  height: auto;
+  margin-top: 2%;
+}
+//BOUTON LIKE ET DISLIKE
+.Like {
+    background-color: rgba(lightgreen, 0.4);
+    color: darkgreen;
+    animation-duration: 0.5s;
+}
+.Like:hover{
+  background-color: rgb(255, 153, 0);
+  color: white;
+  transition: 0.5s;
+}
+.Dislike{
+   background-color: red;
+    animation-duration: 0.5s;
+}
+.Dislike:hover{
+    background-color: rgba(lightgreen, 0.4);
+    color: darkgreen;
+    animation-duration: 0.5s;
+}
+//ETAT INITIAL BOUTON LIKE
+button{
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+    height: 40px;
+    background-color: #4285F4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    transition: 0.5s;
+}
+button:hover{
+    background-color: #357ae8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+button:active{
+    background-color: red;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.commentaire-cell{
+  display: flex;
+  justify-content: space-between;
+  width: max-content;
+  height: max-content;
+}
+.commentaire-cell p{
+  font-size: 11px;
+}
+h3 h4{
+  text-decoration: underline 1px solid;
+}
+.container_symbole{
+  display: flex;
+  width: max-content;
+  height: auto;
+  
+}

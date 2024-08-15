@@ -1,0 +1,59 @@
+<div class="commentaires">
+  <div *ngFor="let commentaire of commentaire" class="commentaire-row">
+    <u><h3>Titre du film : {{commentaire.NomFilm}}</h3></u>
+    <div class="ligne_commentaire">
+      <div class="commentaire-cell">{{ commentaire.etoile }}</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="commentaire-cell"><i>De {{ commentaire.Auteur }}</i></div>
+    </div>
+    <div class="ligne_commentaire">
+      <div class="commentaire-cell"><p>Publié le : {{ commentaire.Date | date:'short' }}</p></div>
+    </div>
+    <div class="ligne_commentaire">
+      <div class="commentaire-cell">{{ commentaire.Message}}</div>
+    </div>
+    <div class="trait"></div>
+    <u><h4>Points Faibles :</h4></u>
+    <div class="ligne_commentaire">
+      <div class="commentaire-cell">{{ commentaire.pointfaibles }}</div>
+    </div>
+    <div class="trait"></div>
+    <u><h4>Points Forts :</h4></u>
+    <div class="ligne_commentaire">
+      <div class="commentaire-cell">{{ commentaire.pointforts }}</div>
+    </div>
+    <div class="trait"></div>
+    <u><h4>Lien :</h4></u>
+    <div class="like-cell">
+      <div class="commentaire-cell">
+        <ng-container *ngIf="commentaire.Lien?.length ?? 0 > 0; else noLink">
+          <ng-container *ngFor="let lien of commentaire.Lien">
+            <img [src]="lien" alt="Lien image" width="200px" height="110px">
+          </ng-container>
+        </ng-container>
+        <ng-template #noLink>-</ng-template>
+      </div>
+  </div>
+    <div class="like-cell">
+        <div class="container_symbole">
+      <div class="commentaire-cell">
+        <button 
+          (click)="OnLike(commentaire)"
+          [ngClass]="{Like: like}">
+          Like
+        </button>&nbsp;
+      </div>
+      <div class="cadre">👍 {{ commentaire.Like }}</div>
+        </div>
+        <div class="container_symbole">
+      <div class="commentaire-cell">
+        <button 
+          (click)="OnDislike(commentaire)"
+          [ngClass]="{Dislike: dislike}">
+          Dislike
+        </button>&nbsp;
+      </div>
+      <div class="cadre">👎 {{ commentaire.DisLike }}</div>
+      </div>
+    </div>
+  </div>
+</div>

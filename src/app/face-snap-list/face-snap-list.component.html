@@ -1,0 +1,6 @@
+<section>
+@for (FaceSnap of tableaufacesnaps; track FaceSnap.titre) { <!--Non du composant of nom du tableau; 
+    track = Pour tracker les changements à l'intérieur du tableau -->
+        <app-snap-face [FaceSnap]="FaceSnap" ></app-snap-face>
+    }
+</section>

@@ -1,0 +1,17 @@
+<footer class="footer">
+  <div class="social-media">
+    <a *ngFor="let link of socialMediaLinks"  [href]="link.url" target="_blank">
+      <img [src]="link.imgUrl" [alt]="link.alt" [ngStyle]="{'width.px': 30}" [ngStyle]="{'height.px': 25}" />
+    </a>
+  </div>
+  
+    <p class="copyright">© 2024 Snap-Face. All rights reserved.</p>
+    <div class="footer-nav">
+      <a href="#home">Home</a>
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </footer>
+  
+  

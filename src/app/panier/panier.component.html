@@ -1,0 +1,21 @@
+<div class="panier_container">
+    <button id="panier" (click)="panier()">{{ paniertext }}</button>
+    <img src="https://cdn-icons-png.flaticon.com/512/126/126083.png" width="30px" alt="ico marchandise">
+        @if(nbpanier == true){
+            <div class="bulle">{{nombrepanier}}</div>
+        }
+        <div class="select-wrapper">
+            <select id="nb_articles" name="nb_articles" (change)="updateArticleCount()" [(ngModel)]="nombrepanier" [disabled]="nbpanier">
+                <option [value]="1">1</option>
+                <option [value]="2">2</option>
+                <option [value]="3">3</option>
+                <option [value]="4">4</option>
+                <option [value]="5">5</option>
+                <option [value]="10">10</option>
+                <option [value]="20">20</option>
+                <option [value]="50">50</option>
+            </select>
+        </div>
+</div>
+
+
